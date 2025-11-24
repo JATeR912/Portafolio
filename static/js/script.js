@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// Activación global de tooltips
+document.addEventListener("DOMContentLoaded", function () {
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+    tooltipTriggerList.forEach(el => new bootstrap.Tooltip(el));
+});
 
 //Ventana en escritorio
 function actualizarCielo() {

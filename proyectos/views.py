@@ -92,26 +92,14 @@ def consulta_sql(request):
 # CONTACTO
 def contacto(request):
     return render(request, "contacto.html")
-    
+
 # AUTENTICACIÓN DE USUARIO
 
 def es_admin_proyecto(user):
-    return user.is_staff  # o user.is_superuser según prefieras
+    return user.is_staff  
 
 
 # --- Autenticación ---
-def registro_usuario(request):
-    if request.method == 'POST':
-        form = RegistroForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Registro exitoso. Inicia sesión para continuar.')
-            return redirect('login')
-    else:
-        form = RegistroForm()
-    return render(request, 'register.html', {'form': form})
-
-
 def login_usuario(request):
     if request.method == 'POST':
         username = request.POST['username']

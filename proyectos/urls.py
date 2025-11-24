@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import index, lista_habilidades, lista_proyecto, detalle_proyecto, crear_proyecto, eliminar_proyecto, editar_proyecto, consulta_sql, contacto, registro_usuario, login_usuario, logout_usuario
+from .views import index, lista_habilidades, lista_proyecto, detalle_proyecto, crear_proyecto, eliminar_proyecto, editar_proyecto, consulta_sql, contacto,  login_usuario, logout_usuario
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -16,7 +16,6 @@ urlpatterns = [
     path('proyecto/sql/', views.consulta_sql, name="consulta_sql"),
 
     # AUTH
-    path('registro/', views.registro_usuario, name='registro'),
     path('login/', views.login_usuario, name='login'),
     path('logout/', views.logout_usuario, name='logout'),
 ]

@@ -29,6 +29,16 @@ body{
     text-shadow: -1px -1px #ff7f81, 1px -1px #ff7f81, -1px 1px #ff7f81, 1px 1px #ff7f81;
 }
 
+.navbar .nav-link img {
+    width: 26px;
+    height: 26px;
+    transition: transform 0.2s ease;
+}
+
+.navbar .nav-link img:hover {
+    transform: scale(1.15);
+}
+
 /* --- SOBRE MI --- */
 #aboutMe .row {
     align-items: center;

@@ -30,7 +30,6 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarNav">
-
             <ul class="navbar-nav ms-auto">
 
                 <!-- Inicio -->
@@ -60,27 +59,25 @@
                 </li>
                 {% endif %}
 
-                <!-- Usuario → icono -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        <img src="{% static 'img/persona_icon.png' %}" alt="user" width="26">
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end">
+                <!-- Ícono de login / logout -->
+                <li class="nav-item">
 
-                        {% if user.is_authenticated %}
-                            <li><span class="dropdown-item-text">Hola, {{ user.username }}</span></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item text-danger" href="{% url 'logout' %}">Cerrar sesión</a></li>
-                        {% else %}
-                            <li><a class="dropdown-item" href="{% url 'login' %}">Iniciar sesión</a></li>
-                            <li><a class="dropdown-item" href="{% url 'registro' %}">Registrarse</a></li>
-                        {% endif %}
-                    </ul>
+                    {% if user.is_authenticated %}
+                        <!-- Ícono de salir -->
+                        <a class="nav-link" href="{% url 'logout' %}">
+                            <img src="{% static 'img/salir_icon.png' %}" alt="logout" width="26">
+                        </a>
+
+                    {% else %}
+                        <!-- Ícono de persona (login) -->
+                        <a class="nav-link" href="{% url 'login' %}">
+                            <img src="{% static 'img/persona_icon.png' %}" alt="user" width="26">
+                        </a>
+
+                    {% endif %}
                 </li>
-
             </ul>
         </div>
-
     </div>
 </nav>
 
