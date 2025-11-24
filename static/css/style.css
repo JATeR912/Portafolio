@@ -189,3 +189,43 @@ p.inProgress {
 .contact .card a {
     text-decoration: none;
 }
+
+/* LOGIN */
+.auth-container {
+    min-height: 70vh;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+.auth-card {
+    background: rgba(243, 239, 227, 0.85);
+    border-radius: 15px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.auth-title {
+    color: white;
+    text-shadow: -1px -1px black, 1px -1px black, -1px 1px black, 1px 1px black;
+}
+
+.auth-card .form-control {
+    border: 2px solid #6c757d;
+    transition: all 0.3s ease;
+}
+
+.auth-card .form-control:focus {
+    border-color: #ff7f81;
+    box-shadow: none;
+}
+
+.auth-card .btn-secondary {
+    background-color: #ff7f81;
+    border: none;
+    font-weight: bold;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.auth-card .btn-secondary:hover {
+    background-color: #ff5959;
+}
