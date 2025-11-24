@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<!-- Sobre mí -->
+<div id="aboutMe" class="container-fluid my-5">
+    <div class="row">
+
+        <!-- Imagen estilo pixel art -->
+        <div class="col-lg-5 col-md-5 text-center">
+            <img src="{% static 'img/pixelart_jater_index.png' %}" 
+                 alt="Dibujo estilo pixel art de Johana" 
+                 class="d-block mx-auto">
+        </div>
+
+        <!-- Información personal -->
+        <div class="col-lg-6 col-md-6 text-end text-light">
+            <div class="title"> 
+                <p class="name fw-bold mb-0">Johana Torres</p>
+                <p class="studing mb-0">Desarrolladora web full stack</p> 
+                <p class="inProgress">En progreso<span class="dots"></span></p>
+                <p class="aboutMe">
+                    "El programar siempre ha llamado mi atención. Actualmente estoy a la espera de una oportunidad 
+                    para poder desarrollarme profesionalmente, pero estoy dispuesta a trabajar en cualquier proyecto 
+                    que me permita mejorar mis habilidades y conocimientos. Me encanta el diseño de todo tipo, 
+                    el hecho de poder visualizar o tocar algo que creaste desde 0 siempre ha sido una de las sensaciones 
+                    más gratificantes del mundo."
+                </p>
+            </div>       
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

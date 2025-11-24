@@ -9,7 +9,18 @@ from django.contrib import messages
 
 #INDEX
 def index(request):
-    return render(request, "proyectos/index.html")
+    return render(request, "index.html")
+
+# LISTA DE HABILIDADES
+def lista_habilidades(request):
+    habilidades_tecnicas = Habilidad.objects.filter(tipo='tecnica')
+    habilidades_blandas = Habilidad.objects.filter(tipo='blanda')
+
+    context = {
+        "habilidades_tecnicas": habilidades_tecnicas,
+        "habilidades_blandas": habilidades_blandas,
+    }
+    return render(request, "proyectos/habilidades.html", context)
 
 # LISTA DE PROYECTOS
 def lista_proyecto(request):

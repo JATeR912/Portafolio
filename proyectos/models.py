@@ -1,8 +1,14 @@
 from django.db import models
 
 class Habilidad(models.Model):
+    TIPO_HABILIDAD = [
+        ('tecnica', 'Técnica'),
+        ('blanda', 'Interpersonal'),
+    ]
+
     nombre = models.CharField(max_length=100)
     experiencia = models.IntegerField(help_text="Años de experiencia")
+    tipo = models.CharField(max_length=10, choices=TIPO_HABILIDAD, default='tecnica')
 
     class Meta:
         ordering = ['nombre'] 
