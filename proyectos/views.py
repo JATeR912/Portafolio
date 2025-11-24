@@ -20,7 +20,7 @@ def lista_habilidades(request):
         "habilidades_tecnicas": habilidades_tecnicas,
         "habilidades_blandas": habilidades_blandas,
     }
-    return render(request, "proyectos/habilidades.html", context)
+    return render(request, "habilidades.html", context)
 
 # LISTA DE PROYECTOS
 def lista_proyecto(request):
@@ -89,7 +89,10 @@ def consulta_sql(request):
 
     return render(request, "proyectos/sql_proyecto.html", {"resultados": resultados})
 
-
+# CONTACTO
+def contacto(request):
+    return render(request, "contacto.html")
+    
 # AUTENTICACIÓN DE USUARIO
 
 def es_admin_proyecto(user):

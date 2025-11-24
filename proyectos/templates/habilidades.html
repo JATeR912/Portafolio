@@ -8,18 +8,22 @@
     <section id="habilities" class="mb-5">
         <h2>Habilidades Técnicas</h2>
         <div class="row">
-            {% for hab in habilidades_tecnicas %}
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ hab.nombre }}</h5>
-                        {% if hab.experiencia %}
-                            <p class="card-text">{{ hab.experiencia }} años de experiencia</p>
-                        {% endif %}
+            {% if habilidades_tecnicas %}
+                {% for hab in habilidades_tecnicas %}
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ hab.nombre }}</h5>
+                            {% if hab.experiencia %}
+                                <p class="card-text">{{ hab.experiencia }} años de experiencia</p>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <p>No hay habilidades técnicas registradas aún.</p>
+            {% endif %}
         </div>
     </section>
 
@@ -27,18 +31,22 @@
     <section id="soft-habilities">
         <h2>Habilidades Interpersonales</h2>
         <div class="row">
-            {% for hab in habilidades_blandas %}
-            <div class="col-md-4 mb-3">
-                <div class="card shadow-sm">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ hab.nombre }}</h5>
-                        {% if hab.experiencia %}
-                            <p class="card-text">{{ hab.experiencia }} años de experiencia</p>
-                        {% endif %}
+            {% if habilidades_blandas %}
+                {% for hab in habilidades_blandas %}
+                <div class="col-md-4 mb-3">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ hab.nombre }}</h5>
+                            {% if hab.experiencia %}
+                                <p class="card-text">{{ hab.experiencia }} años de experiencia</p>
+                            {% endif %}
+                        </div>
                     </div>
                 </div>
-            </div>
-            {% endfor %}
+                {% endfor %}
+            {% else %}
+                <p>No hay habilidades interpersonales registradas aún.</p>
+            {% endif %}
         </div>
     </section>
 </div>

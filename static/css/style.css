@@ -1,0 +1,181 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;700&display=swap');
+/* --- BASE --- */
+/* --- BODY --- */
+body{
+    margin: 0 auto;
+    overflow-x: hidden; /* evitar scroll horizontal */
+    background-color: #ff7f81;
+    font-family: 'Pixelify Sans', sans-serif;
+}
+
+/* --- NAVBAR --- */
+#navbar {
+    background: rgba(243,239,227,0.7);
+}
+
+#logo {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+#navbar .nav-link {
+    color: #6c757d; 
+    transition: color 0.3s ease;
+}
+
+#navbar .nav-link:hover {
+    color: white;
+    text-shadow: -1px -1px #ff7f81, 1px -1px #ff7f81, -1px 1px #ff7f81, 1px 1px #ff7f81;
+}
+
+/* --- SOBRE MI --- */
+#aboutMe .row {
+    align-items: center;
+    justify-content: center;
+}
+
+#aboutMe img {
+    max-width: 100%;
+    height: 75vh;
+}
+
+p.name {
+    font-size: 60px;
+    text-shadow: -3px -3px black, 3px -3px black, -3px 3px black, 3px 3px black;
+}
+
+p.studying { /* corregido el typo */
+    font-size: 20px;
+    text-shadow: -1px -1px black, 1px -1px black, -1px 1px black, 1px 1px black;
+}
+
+p.inProgress {
+    text-shadow: -1px -1px black, 1px -1px black, -1px 1px black, 1px 1px black;
+}
+
+.dots::after {
+    content: "";
+    animation: dots 2s steps(3, end) infinite;
+}
+
+@keyframes dots {
+    0% { content: " "; }
+    33% { content: " ."; }
+    66% { content: " . ."; }
+    100% { content: " . . ."; }
+}
+/* --- Footer --- */
+#footer{
+  background: rgb(243,239,227,0.7);
+}
+
+
+
+/* --- HABILIDADES --- */
+/* --- CARDS HABILIDADES --- */
+.habilities-section .card {
+    background: rgba(243,239,227,0.7);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.habilities-section .card:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+    #aboutMe img {
+        height: 50vh;
+    }
+    p.name {
+        font-size: 40px;
+    }
+    p.studying {
+        font-size: 16px;
+    }
+}
+
+
+
+/* --- CONTACTO --- */
+/* Contenedor principal de la escena pixel */
+.escena-pixel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* centra verticalmente */
+  height: 100%;
+  max-height: 90vh;
+}
+
+/* Imagen o SVG del escritorio */
+.escena-pixel .svg-container {
+  width: auto;
+  height: 60vh;
+  aspect-ratio: 1184 / 864;
+  max-width: 100%;
+  display: block;
+  overflow: hidden;
+}
+
+.escena-pixel svg {
+  width: 100%;
+  height: 100%;
+}
+
+.escena-pixel .ventana {
+  transition: fill 2s ease;
+}
+
+.contact .row {
+  align-items: center;
+}
+
+.is-invalid ~ .invalid-feedback {
+  display: block;
+}
+
+.contact .escena-pixel {
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 992px) {
+  .contact .escena-pixel {
+    margin-bottom: 0;
+  }
+}
+
+/* Cards de contacto */
+.contact .card {
+    background: #ff7f81;
+    border: 5px solid rgb(243, 239, 227, 0.7);
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.contact .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.contact .card img {
+    transition: transform 0.3s ease;
+}
+
+.contact .card:hover img {
+    transform: scale(1.1);
+}
+
+.contact .card-title {
+    margin-top: 0.5rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: -1px -1px black, 1px -1px black, -1px 1px black, 1px 1px black;
+}
+
+.contact .card a {
+    text-decoration: none;
+}

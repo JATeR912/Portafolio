@@ -50,7 +50,7 @@
 
                 <!-- Contacto -->
                 <li class="nav-item">
-                    <a href="#contact" class="nav-link opacity-75">Contacto</a>
+                    <a href="{% url 'contacto' %}" class="nav-link opacity-75">Contacto</a>
                 </li>
 
                 <!-- SOLO SI ES STAFF → botón agregar proyecto -->
@@ -63,7 +63,7 @@
                 <!-- Usuario → icono -->
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
-                        <img src="{% static 'img/user_icon.png' %}" alt="user" width="26">
+                        <img src="{% static 'img/persona_icon.png' %}" alt="user" width="26">
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end">
 
@@ -98,6 +98,13 @@
 
 <!-- CONTENIDO PRINCIPAL -->
 {% block content %}{% endblock %}
+
+<!-- Footer -->
+<footer id="footer" class="py-3 mt-3">
+    <div class="container-fluid">
+        <p class="text-center text-muted">JATeR © 2025. Todos los derechos reservados.</p>
+    </div>
+</footer>
 
 <script src="{% static 'js/script.js' %}"></script>
 
