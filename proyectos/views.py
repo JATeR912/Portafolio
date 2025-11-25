@@ -77,18 +77,39 @@ def eliminar_proyecto(request, pk):
 # CONSULTA SQL 
 @login_required
 def consulta_sql(request):
+
+    habilidad = request.GET.get("habilidad", "")
+    proyecto = request.GET.get("proyecto", "")
+
+    query = """
+        SELECT p.id, p.titulo, h.nombre, h.experiencia
+        FROM proyectos_proyecto p
+        JOIN proyectos_proyecto_habilidades ph ON p.id = ph.proyecto_id
+        JOIN proyectos_habilidad h ON h.id = ph.habilidad_id
+        WHERE 1 = 1
+    """
+
+    params = []
+
+    if habilidad:
+        query += " AND h.nombre LIKE %s"
+        params.append(f"%{habilidad}%")
+
+    if proyecto:
+        query += " AND p.titulo LIKE %s"
+        params.append(f"%{proyecto}%")
+
+    query += " ORDER BY p.fecha_publicacion DESC"
+
     with connection.cursor() as cursor:
-        cursor.execute("""
-            SELECT p.id, p.titulo, h.nombre, h.experiencia
-            FROM proyectos_proyecto p
-            JOIN proyectos_proyecto_habilidades ph ON p.id = ph.proyecto_id
-            JOIN proyectos_habilidad h ON h.id = ph.habilidad_id
-            WHERE h.tipo = 'tecnica'
-            ORDER BY p.fecha_publicacion DESC;
-        """)
+        cursor.execute(query, params)
         resultados = cursor.fetchall()
 
-    return render(request, "proyectos/sql_proyecto.html", {"resultados": resultados})
+    return render(request, "proyectos/sql_proyecto.html", {
+        "resultados": resultados,
+        "habilidad": habilidad,
+        "proyecto": proyecto,
+    })
 
 # CONTACTO
 def contacto(request):

@@ -1,14 +1,30 @@
+// --- ALERTAS AUTOMÁTICAS ---
 document.addEventListener('DOMContentLoaded', () => {
-    // Cerrar automáticamente alertas de Bootstrap
-    document.querySelectorAll('.alert').forEach(alert => {
-        setTimeout(() => new bootstrap.Alert(alert).close(), 5000);
+    const alerts = document.querySelectorAll('.alert');
+    alerts.forEach(alert => {
+        setTimeout(() => {
+            const bsAlert = new bootstrap.Alert(alert);
+            bsAlert.close();
+        }, 5000); // 5 segundos
     });
+});
 
-    // Código de la escena solo si existe
-    const svg = document.getElementById('escena');
-    if (!svg) return;
+// --- ACTUALIZAR CIELO ---
+function actualizarCielo() {
+    const hora = new Date().getHours();
+    const ventanas = document.querySelectorAll('.ventana');
+    let color;
 
-    // Añadir gradientes
+    if (hora >= 6 && hora < 9) color = 'url(#amanecer)';
+    else if (hora >= 9 && hora < 17) color = 'url(#dia)';
+    else if (hora >= 17 && hora < 20) color = 'url(#atardecer)';
+    else color = 'url(#noche)';
+
+    ventanas.forEach(v => v.setAttribute('fill', color));
+}
+
+const svg = document.getElementById('escena');
+if (svg) {
     const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
     defs.innerHTML = `
         <linearGradient id="amanecer" x1="0" y1="0" x2="0" y2="1">
@@ -29,18 +45,32 @@ document.addEventListener('DOMContentLoaded', () => {
         </linearGradient>
     `;
     svg.prepend(defs);
-
-    // Función para actualizar color de las ventanas
-    const actualizarCielo = () => {
-        const hora = new Date().getHours();
-        const color = (hora >= 6 && hora < 9) ? 'url(#amanecer)' :
-                      (hora >= 9 && hora < 17) ? 'url(#dia)' :
-                      (hora >= 17 && hora < 20) ? 'url(#atardecer)' :
-                      'url(#noche)';
-
-        svg.querySelectorAll('.ventana').forEach(v => v.setAttribute('fill', color));
-    };
-
     actualizarCielo();
     setInterval(actualizarCielo, 60000);
-});
+}
+
+// --- FILTRO EN VIVO TABLA SQL ---
+const filtroInput = document.getElementById("filtroLive");
+const clearFiltro = document.getElementById("clearFiltro");
+
+if (filtroInput) {
+    // Filtrado en tiempo real
+    filtroInput.addEventListener("keyup", function () {
+        const filtro = this.value.toLowerCase().trim();
+        const filas = document.querySelectorAll("table tbody tr");
+
+        filas.forEach(fila => {
+            const textoFila = fila.innerText.toLowerCase();
+            fila.style.display = textoFila.includes(filtro) ? "" : "none";
+        });
+    });
+
+    // Limpiar input al hacer click en la X
+    clearFiltro.addEventListener("click", () => {
+        filtroInput.value = "";
+        const filas = document.querySelectorAll("table tbody tr");
+        filas.forEach(fila => fila.style.display = "");
+        filtroInput.focus();
+    });
+}
+

@@ -1,20 +1,23 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-<div class="container mt-4 reporte-sql">
-    <h2 class="auth-title mb-4">Reportes SQL</h2>
+<div class="container my-4 reporte-sql">
+    <h2 class="mb-4 text-center">Reportes de Proyectos y Habilidades</h2>
 
-    {% if resultados %}
-    <table class="table">
+    <div class="reporte-sql mb-3 position-relative">
+        <input type="text" id="filtroLive" class="form-control" placeholder="Filtrar resultados en tiempo real...">
+        <span id="clearFiltro" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #ff5959; font-weight: bold;">×</span>
+    </div>
+    <table class="table table-striped text-center">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Título</th>
+                <th>Proyecto</th>
                 <th>Habilidad</th>
-                <th>Años de experiencia</th>
+                <th>Experiencia</th>
             </tr>
         </thead>
-
         <tbody>
             {% for fila in resultados %}
             <tr>
@@ -23,13 +26,14 @@
                 <td>{{ fila.2 }}</td>
                 <td>{{ fila.3 }}</td>
             </tr>
+            {% empty %}
+            <tr>
+                <td colspan="4" class="text-center">No hay resultados</td>
+            </tr>
             {% endfor %}
         </tbody>
     </table>
 
-    {% else %}
-        <div class="alert alert-warning">No hay datos para mostrar.</div>
-    {% endif %}
 </div>
 
 {% endblock %}
