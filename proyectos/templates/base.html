@@ -45,7 +45,10 @@
                     </li>
                     {% if user.is_staff %}
                     <li class="nav-item">
-                        <a href="{% url 'crear_proyecto' %}" class="nav-link fw-bold">+ Agregar proyecto</a>
+                        <a href="{% url 'consulta_sql' %}" class="nav-link opacity-75">Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'crear_proyecto' %}" class="nav-link nav-agregar fw-bold">+ Agregar proyecto</a>
                     </li>
                     {% endif %}
                     <li class="nav-item">

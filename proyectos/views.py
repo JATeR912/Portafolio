@@ -83,6 +83,7 @@ def consulta_sql(request):
             FROM proyectos_proyecto p
             JOIN proyectos_proyecto_habilidades ph ON p.id = ph.proyecto_id
             JOIN proyectos_habilidad h ON h.id = ph.habilidad_id
+            WHERE h.tipo = 'tecnica'
             ORDER BY p.fecha_publicacion DESC;
         """)
         resultados = cursor.fetchall()

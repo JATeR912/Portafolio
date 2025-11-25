@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-4 reporte-sql">
+    <h2 class="auth-title mb-4">Reportes SQL</h2>
+
+    {% if resultados %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Habilidad</th>
+                <th>Años de experiencia</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for fila in resultados %}
+            <tr>
+                <td>{{ fila.0 }}</td>
+                <td>{{ fila.1 }}</td>
+                <td>{{ fila.2 }}</td>
+                <td>{{ fila.3 }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% else %}
+        <div class="alert alert-warning">No hay datos para mostrar.</div>
+    {% endif %}
+</div>
+
+{% endblock %}
