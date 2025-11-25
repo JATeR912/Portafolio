@@ -43,10 +43,7 @@
                 {% if user.is_staff %}
                 <div class="d-flex gap-2 mb-3">
                     <a href="{% url 'editar_proyecto' proyecto.pk %}" class="btn btn-warning flex-fill">Editar</a>
-                    <form method="POST" action="{% url 'eliminar_proyecto' proyecto.pk %}" class="flex-fill">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-danger w-100">Eliminar</button>
-                    </form>
+                    <a href="{% url 'eliminar_proyecto' proyecto.pk %}" class="btn btn-danger btn-sm w-100">Eliminar</a>
                 </div>
                 {% endif %}
 

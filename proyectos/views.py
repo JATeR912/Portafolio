@@ -72,7 +72,7 @@ def eliminar_proyecto(request, pk):
         proyecto.delete()
         messages.warning(request, 'Proyecto eliminado correctamente.')
         return redirect('lista_proyecto')
-    return render(request, 'proyectos/eliminar_proyeto.html', {'proyecto': proyecto})
+    return render(request, 'proyectos/eliminar_proyecto.html', {'proyecto': proyecto})
 
 # CONSULTA SQL 
 @login_required
