@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://jater912.github.io/JATeR912/banner_github.jpg" alt="Banner" width="100%">
+</p>
+
 # Portafolio — JATeR 🌟
 
 Bienvenido a mi portafolio de desarrollo. Aquí encontrarás una selección de mis proyectos, tecnologías que domino y enlaces a mis trabajos destacados. Este repositorio sirve como una vitrina profesional de mis habilidades y progreso como desarrollador.
@@ -30,9 +34,6 @@ Aplicación web que permite explorar lugares turísticos y festivales en Japón,
 🔗 Repositorio: [TravelPoint](https://github.com/JATeR912/travel-point)  
 🔗 Demo desplegada: [link al demo](https://travel-point-ort2.onrender.com/)
 
-![Banner Portafolio]("https://jater912.github.io/JATeR912/banner_github.jpg")
-
----
 
 ## 🧰 Tecnologías que domino
 
