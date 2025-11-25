@@ -6,7 +6,7 @@
     <h2 class="mb-4 text-center">Proyectos</h2>
     <div class="row g-4">
         {% for proyecto in proyecto %}
-        <div class="col-md-6 col-lg-4">
+        <div class="project col-md-6 col-lg-4">
             <div class="card shadow-sm h-100">
                 {% if proyecto.imagen %}
                 <img src="{{ proyecto.imagen.url }}" class="card-img-top" alt="{{ proyecto.titulo }}">
@@ -14,16 +14,18 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ proyecto.titulo }}</h5>
                     <p class="card-text">{{ proyecto.descripcion|truncatewords:20 }}</p>
-                    <a href="{% url 'detalle_proyecto' proyecto.pk %}" class="btn btn-secondary btn-sm w-100 mb-2">Ver detalle</a>
 
                     {% if user.is_staff %}
-                    <div class="d-flex justify-content-between mt-2">
-                        <a href="{% url 'editar_proyecto' proyecto.pk %}" class="btn btn-warning btn-sm">Editar</a>
-                        <form method="POST" action="{% url 'eliminar_proyecto' proyecto.pk %}">
+                    <div class="d-flex justify-content-between my-2 gap-2">
+                        <a href="{% url 'editar_proyecto' proyecto.pk %}" class="btn btn-warning btn-sm flex-fill">Editar</a>
+                        <form method="POST" action="{% url 'eliminar_proyecto' proyecto.pk %}" class="flex-fill">
                             {% csrf_token %}
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            <button type="submit" class="btn btn-danger btn-sm w-100">Eliminar</button>
                         </form>
                     </div>
+                    <a href="{% url 'detalle_proyecto' proyecto.pk %}" class="btn btn-secondary btn-sm w-100 mb-2">Ver detalle</a>
+                    {% else %}
+                    <a href="{% url 'detalle_proyecto' proyecto.pk %}" class="btn btn-secondary btn-sm w-100 mb-2">Ver detalle</a>
                     {% endif %}
                 </div>
             </div>
@@ -35,7 +37,7 @@
 
     {% if user.is_staff %}
     <div class="mt-4 text-center">
-        <a href="{% url 'crear_proyecto' %}" class="btn btn-success">Agregar nuevo proyecto</a>
+        <a href="{% url 'crear_proyecto' %}" class="btn btn-light">Agregar nuevo proyecto</a>
     </div>
     {% endif %}
 </div>

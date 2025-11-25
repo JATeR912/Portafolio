@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Editar Proyecto: {{ proyecto.titulo }}</h2>
+
+    <div class="card shadow p-4" id="form-card">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <button type="submit" class="btn btn-warning w-100 mt-3">Guardar cambios</button>
+        </form>
+        <a href="{% url 'detalle_proyecto' proyecto.pk %}" class="btn btn-secondary w-100 mt-2">Cancelar</a>
+    </div>
+</div>
+{% endblock %}
