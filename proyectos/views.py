@@ -108,7 +108,7 @@ def login_usuario(request):
         if user:
             login(request, user)
             messages.success(request, f'Bienvenido {user.username}')
-            return redirect('lista_proyecto')
+            return redirect('index')
         else:
             messages.error(request, 'Credenciales inválidas')
     return render(request, 'login.html')
