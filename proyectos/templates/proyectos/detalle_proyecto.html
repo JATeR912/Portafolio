@@ -21,7 +21,7 @@
 
                 {% if proyecto.habilidades.exists %}
                     <hr>
-                    <p><strong>Habilidades / Aplicaciones:</strong></p>
+                    <p><strong>Programas:</strong></p>
                     <ul>
                         {% for hab in proyecto.habilidades.all %}
                             <li>{{ hab.nombre }}{% if hab.experiencia %} - {{ hab.experiencia }} años{% endif %}</li>

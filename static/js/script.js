@@ -8,7 +8,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 5000); // 5 segundos
     });
 });
+// --- FILTRO EN VIVO PROYECTOS ---
+const filtroProyecto = document.getElementById("filtroProyecto");
+const clearProyecto = document.getElementById("clearProyecto");
 
+if (filtroProyecto) {
+    filtroProyecto.addEventListener("keyup", function () {
+        const filtro = this.value.toLowerCase().trim();
+        const proyectos = document.querySelectorAll(".project");
+
+        proyectos.forEach(proyecto => {
+            const titulo = proyecto.querySelector(".card-title").innerText.toLowerCase();
+            proyecto.style.display = titulo.includes(filtro) ? "" : "none";
+        });
+    });
+
+    clearProyecto.addEventListener("click", () => {
+        filtroProyecto.value = "";
+        const proyectos = document.querySelectorAll(".project");
+        proyectos.forEach(proyecto => proyecto.style.display = "");
+        filtroProyecto.focus();
+    });
+}
 // --- ACTUALIZAR CIELO ---
 function actualizarCielo() {
     const hora = new Date().getHours();
