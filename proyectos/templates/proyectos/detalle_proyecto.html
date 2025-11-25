@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <!-- Imagen del proyecto -->
+        <div class="col-12 col-md-6 mb-4">
+            {% if proyecto.imagen %}
+                <img src="{{ proyecto.imagen.url }}" class="img-fluid rounded shadow" alt="{{ proyecto.titulo }}">
+            {% else %}
+                <div class="p-5 bg-light rounded text-center shadow">Sin imagen disponible</div>
+            {% endif %}
+        </div>
+
+        <!-- Información del proyecto -->
+        <div class="col-12 col-md-6">
+            <div class="card p-4 shadow">
+                <h1 class="fw-bold mb-3">{{ proyecto.titulo }}</h1>
+
+                <p>{{ proyecto.descripcion }}</p>
+
+                {% if proyecto.habilidades.exists %}
+                    <hr>
+                    <p><strong>Habilidades / Aplicaciones:</strong></p>
+                    <ul>
+                        {% for hab in proyecto.habilidades.all %}
+                            <li>{{ hab.nombre }}{% if hab.experiencia %} - {{ hab.experiencia }} años{% endif %}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+
+                <div class="d-flex gap-2 mb-3">
+                    {% if proyecto.repo_url %}
+                        <a href="{{ proyecto.repo_url }}" target="_blank" class="btn btn-dark flex-fill">Código</a>
+                    {% endif %}
+                    {% if proyecto.demo_url %}
+                        <a href="{{ proyecto.demo_url }}" target="_blank" class="btn btn-danger flex-fill">Demo</a>
+                    {% endif %}
+                </div>
+
+                <a href="{% url 'lista_proyecto' %}" class="btn btn-secondary w-100">Volver a la lista</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
