@@ -17,91 +17,78 @@
 </head>
 
 <body>
+<div class="d-flex flex-column min-vh-100">
 
-<!-- NAVBAR -->
-<nav id="navbar" class="navbar navbar-expand-lg mb-5 sticky-top">
-    <div class="container-fluid">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="navbar navbar-expand-lg sticky-top">
+        <div class="container-fluid">
+            <img id="logo" src="{% static 'img/favicon_portafolio.png' %}" alt="logo" class="logo">
+            <a class="navbar-brand" href="{% url 'index' %}">JATeR</a>
 
-        <img id="logo" src="{% static 'img/favicon_portafolio.png' %}" alt="logo" class="logo">
-        <a class="navbar-brand" href="{% url 'index' %}">JATeR</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-
-                <!-- Inicio -->
-                <li class="nav-item">
-                    <a href="{% url 'index' %}" class="nav-link opacity-75">Inicio</a>
-                </li>
-
-                <!-- Habilidades (ancla local) -->
-                <li class="nav-item">
-                    <a href="{% url 'lista_habilidades' %}" class="nav-link opacity-75">Habilidades</a>
-                </li>
-
-                <!-- Proyectos (va a lista_proyecto) -->
-                <li class="nav-item">
-                    <a href="{% url 'lista_proyecto' %}" class="nav-link opacity-75">Proyectos</a>
-                </li>
-
-                <!-- Contacto -->
-                <li class="nav-item">
-                    <a href="{% url 'contacto' %}" class="nav-link opacity-75">Contacto</a>
-                </li>
-
-                <!-- SOLO SI ES STAFF → botón agregar proyecto -->
-                {% if user.is_staff %}
-                <li class="nav-item">
-                    <a href="{% url 'crear_proyecto' %}" class="nav-link fw-bold">+ Agregar proyecto</a>
-                </li>
-                {% endif %}
-
-                <!-- Ícono de login / logout -->
-                <li class="nav-item">
-
-                    {% if user.is_authenticated %}
-                        <!-- Ícono de salir -->
-                        <a class="nav-link" href="{% url 'logout' %}">
-                            <img src="{% static 'img/salir_icon.png' %}" alt="logout" width="26">
-                        </a>
-
-                    {% else %}
-                        <!-- Ícono de persona (login) -->
-                        <a class="nav-link" href="{% url 'login' %}">
-                            <img src="{% static 'img/persona_icon.png' %}" alt="user" width="26">
-                        </a>
-
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a href="{% url 'index' %}" class="nav-link opacity-75">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'lista_habilidades' %}" class="nav-link opacity-75">Habilidades</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'lista_proyecto' %}" class="nav-link opacity-75">Proyectos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{% url 'contacto' %}" class="nav-link opacity-75">Contacto</a>
+                    </li>
+                    {% if user.is_staff %}
+                    <li class="nav-item">
+                        <a href="{% url 'crear_proyecto' %}" class="nav-link fw-bold">+ Agregar proyecto</a>
+                    </li>
                     {% endif %}
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<!-- SISTEMA DE MENSAJES DJANGO -->
-<div class="container mt-3">
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <li class="nav-item">
+                        {% if user.is_authenticated %}
+                            <a class="nav-link" href="{% url 'logout' %}">
+                                <img src="{% static 'img/salir_icon.png' %}" alt="logout" width="26">
+                            </a>
+                        {% else %}
+                            <a class="nav-link" href="{% url 'login' %}">
+                                <img src="{% static 'img/persona_icon.png' %}" alt="user" width="26">
+                            </a>
+                        {% endif %}
+                    </li>
+                </ul>
             </div>
-        {% endfor %}
-    {% endif %}
-</div>
+        </div>
+    </nav>
 
-<!-- CONTENIDO PRINCIPAL -->
-{% block content %}{% endblock %}
-
-<!-- Footer -->
-<footer id="footer" class="py-3 mt-3">
-    <div class="container-fluid">
-        <p class="text-center text-muted">JATeR © 2025. Todos los derechos reservados.</p>
+    <!-- SISTEMA DE MENSAJES DJANGO -->
+    <div class="container mt-3">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
-</footer>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-grow-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="py-2 mt-3">
+        <div class="container-fluid">
+            <p class="text-center text-muted">JATeR © 2025. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+</div>
 
 <script src="{% static 'js/script.js' %}"></script>
 
