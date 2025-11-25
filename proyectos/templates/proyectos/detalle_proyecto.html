@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container mt-4">
     <div class="row align-items-center">
-    <!-- Imagen del proyecto -->
+        <!-- Imagen del proyecto -->
         <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
             {% if proyecto.imagen %}
                 <img src="{{ proyecto.imagen.url }}" class="img-fluid rounded shadow" alt="{{ proyecto.titulo }}">
@@ -14,7 +14,7 @@
 
         <!-- Información del proyecto -->
         <div class="col-12 col-md-6">
-            <div class="card p-4 shadow">
+            <div class="card p-4 shadow d-flex flex-column h-100">
                 <h1 class="fw-bold mb-3">{{ proyecto.titulo }}</h1>
 
                 <p>{{ proyecto.descripcion }}</p>
@@ -29,16 +29,29 @@
                     </ul>
                 {% endif %}
 
+                <!-- Botones de Código/Demo -->
                 <div class="d-flex gap-2 mb-3">
                     {% if proyecto.repo_url %}
                         <a href="{{ proyecto.repo_url }}" target="_blank" class="btn btn-dark flex-fill">Código</a>
                     {% endif %}
                     {% if proyecto.demo_url %}
-                        <a href="{{ proyecto.demo_url }}" target="_blank" class="btn btn-danger flex-fill">Demo</a>
+                        <a href="{{ proyecto.demo_url }}" target="_blank" class="btn-demo flex-fill">Demo</a>
                     {% endif %}
                 </div>
 
-                <a href="{% url 'lista_proyecto' %}" class="btn btn-secondary w-100">Volver a la lista</a>
+                <!-- Botones de Editar/Eliminar para staff -->
+                {% if user.is_staff %}
+                <div class="d-flex gap-2 mb-3">
+                    <a href="{% url 'editar_proyecto' proyecto.pk %}" class="btn btn-warning flex-fill">Editar</a>
+                    <form method="POST" action="{% url 'eliminar_proyecto' proyecto.pk %}" class="flex-fill">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger w-100">Eliminar</button>
+                    </form>
+                </div>
+                {% endif %}
+
+                <!-- Botón volver a la lista -->
+                <a href="{% url 'lista_proyecto' %}" class="btn btn-secondary w-100 mt-auto">Volver a la lista</a>
             </div>
         </div>
     </div>
