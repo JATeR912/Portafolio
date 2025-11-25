@@ -1,20 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div class="error-container">
-
+<div class="container d-flex flex-column justify-content-center align-items-center min-vh-75 text-center error-container">
     <div class="error-code">403</div>
-
-    <h2 class="fw-bold mt-2">Acceso denegado</h2>
-
-    <p class="mt-3">
+    <h2 class="error-title mt-2">Acceso denegado</h2>
+    <p class="error-text mt-3">
         No tienes permiso para acceder a esta sección.<br>
         Si crees que es un error, contacta al administrador.
     </p>
-
-    <a href="{% url 'lista_lugares' %}" class="btn btn-primary w-100 mt-3">
-        Volver al inicio
-    </a>
+    <a href="{% url 'index' %}" class="btn btn-demo mt-3 w-100 w-md-auto">Volver al inicio</a>
 </div>
 
 {% endblock %}

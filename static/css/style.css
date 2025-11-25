@@ -282,3 +282,23 @@ p.inProgress {
 .auth-card .btn-secondary:hover {
     background-color: #ff5959;
 }
+
+/* --- ERRORES 403/404 --- */
+.error-code {
+    font-size: 6rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: -2px -2px black, 2px -2px black, -2px 2px black, 2px 2px black;
+}
+
+.error-title {
+    font-weight: bold;
+    font-size: 2rem;
+    color: white;
+    text-shadow: -1px -1px black, 1px -1px black, -1px 1px black, 1px 1px black;
+}
+
+.error-text {
+    color: white;
+    text-shadow: -1px -1px black, 1px -1px black, -1px 1px black, 1px 1px black;
+}
