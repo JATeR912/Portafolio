@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-yb!))txv*x^$#9n^m1**e5sz3v(_m^0i$&3+-+^(uv=7su)k1u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'https://jater-portafolio.onrender.com']
 
 
 # Application definition
