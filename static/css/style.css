@@ -84,12 +84,12 @@ p.inProgress {
 
 /* --- HABILIDADES --- */
 /* --- CARDS HABILIDADES --- */
-.habilities-section .card {
+.habilities .card {
     background: rgba(243,239,227,0.7);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.habilities-section .card:hover { 
+.habilities .card:hover { 
     transform: scale(1.05);
     box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }

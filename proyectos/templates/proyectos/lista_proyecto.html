@@ -20,10 +20,12 @@
                         <h5 class="card-title">{{ proyecto.titulo }}</h5>
                         <p class="card-text">{{ proyecto.descripcion|truncatewords:20 }}</p>
                     </div>
+                    {% if user.is_authenticated %}
                     <div class="d-flex gap-2 my-2 mt-auto">
                         <a href="{% url 'editar_proyecto' proyecto.pk %}" class="btn btn-warning btn-sm flex-fill">Editar</a>
                         <a href="{% url 'eliminar_proyecto' proyecto.pk %}" class="btn btn-danger btn-sm flex-fill">Eliminar</a>
                     </div>
+                    {% endif %}
                     <a href="{% url 'detalle_proyecto' proyecto.pk %}" class="btn btn-secondary btn-sm w-100 mt-2">Ver detalle</a>
                 </div>
             </div>
