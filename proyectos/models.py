@@ -23,6 +23,7 @@ class Proyecto(models.Model):
     fecha_publicacion = models.DateTimeField(auto_now_add=True)
     demo_url = models.URLField(blank=True, null=True)
     repo_url = models.URLField(blank=True, null=True)
+    visible = models.BooleanField(default=True)
 
     habilidades = models.ManyToManyField(Habilidad, related_name='proyectos')
 

@@ -24,7 +24,7 @@ def lista_habilidades(request):
 
 # LISTA DE PROYECTOS
 def lista_proyecto(request):
-    proyecto = Proyecto.objects.all().order_by('-fecha_publicacion')
+    proyecto = Proyecto.objects.filter(visible=True).order_by('-fecha_publicacion')
     return render(request, "proyectos/lista_proyecto.html", {"proyecto": proyecto})
 
 

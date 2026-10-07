@@ -19,7 +19,8 @@ class ProyectoForm(forms.ModelForm):
             'imagen',
             'demo_url',
             'repo_url',
-            'habilidades'
+            'habilidades',
+            'visible'
         ]
         widgets = {
             'habilidades': forms.CheckboxSelectMultiple()
