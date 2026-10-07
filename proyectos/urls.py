@@ -1,11 +1,12 @@
 from django.urls import path
 from . import views
-from .views import index, lista_habilidades, lista_proyecto, detalle_proyecto, crear_proyecto, eliminar_proyecto, editar_proyecto, consulta_sql, contacto,  login_usuario, logout_usuario
+from .views import index, lista_habilidades, lista_proyecto, detalle_proyecto, caso_disper, crear_proyecto, eliminar_proyecto, editar_proyecto, consulta_sql, contacto,  login_usuario, logout_usuario
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('habilidades/', views.lista_habilidades, name='lista_habilidades'),
     path('contacto/', views.contacto, name='contacto'),
+    path('caso_estudio/', views.caso_disper, name='caso_disper'),
 
     # PROYECTOS
     path('proyecto/', views.lista_proyecto, name='lista_proyecto'),

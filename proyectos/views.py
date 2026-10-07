@@ -33,6 +33,10 @@ def detalle_proyecto(request, pk):
     proyecto = get_object_or_404(Proyecto, pk=pk)
     return render(request, "proyectos/detalle_proyecto.html", {"proyecto": proyecto})
 
+    #CASO DE ESTUDIO
+def caso_disper(request):
+    return render(request, "proyectos/caso_estudio_disper.html")
+
 # --- CRUD restringido al admin del proyecto ---
 # CREAR PROYECTO
 @login_required
