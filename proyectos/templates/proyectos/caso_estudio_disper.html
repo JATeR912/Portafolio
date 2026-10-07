@@ -3,10 +3,93 @@
 
 {% block content %}
 
-<div class="container my-5">
-    <h2 class="mb-4 text-center">Caso de estudio: Disper</h2>
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <img src="{% static 'img/proyectos/disper.png' %}" alt="Caso de estudio: Disper" class="img-fluid">
+    <div class="container my-5">
+        <h2 class="mb-4 text-center">Caso de estudio: Disper</h2>
+        <div class="container mt-4">
+            <div class="row align-items-center">
+                <!-- Imagen del caso de estudio -->
+                <div class="col-12 col-md-6 mb-4 d-flex justify-content-center">
+                    <img src="{% static 'img/disper/index_hbs.png' %}" alt="Caso de estudio: Disper" class="img-fluid">
+                </div>
+
+                <!-- Información del caso de estudio -->
+                <div class="col-12 col-md-6">
+                    <div class="card p-3 shadow d-flex flex-column h-100">
+                        <p class="mb-0">Desarrollo evolutivo e incremental de una aplicación backend construida en tres etapas (Módulos 6, 7 y 8). DISPER es un sistema API REST enfocado en la gestión y organización de tareas con autenticación de usuarios, autorización basada en roles (RBAC) y persistencia en base de datos relacional. El proyecto evolucionó desde servir vistas estáticas/dinámicas básicas hasta convertirse en una API independiente y desacoplada del frontend.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 mt-4">
+            <div class="p-3 d-flex flex-column h-100">
+                <h3 class="mb-3">Desafío principal que implicaba</h3>
+                <p>Diseñar e implementar un backend totalmente independiente y flexible que pudiera adaptarse a distintas interfaces de cliente sin acoplar la lógica de negocio. El reto consistió en estructurar una arquitectura limpia capaz de soportar tanto un enfoque de organización por proyectos en hitos pequeños (para medir el avance progresivo) como un registro diario de micro-tareas para retroalimentar al usuario sin la presión tradicional de métricas rígidas de productividad, garantizando al mismo tiempo un manejo seguro de datos y archivos.</p>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 mt-4">
+            <div class="p-3 d-flex flex-column h-100">
+                <h3 class="mb-3">Solución propuesta</h3>
+                <p>Se construyó una API RESTful modular dividida estrictamente en capas (rutas, controladores, middlewares, modelos y servicios).</p>
+                <ul>
+                    <li>Se implementó autenticación y autorización mediante tokens JWT y cifrado de contraseñas con bcryptjs.</li>
+                    <li>Se utilizó Sequelize (ORM) sobre PostgreSQL para abstraer y estructurar el modelo de datos relacional, migrando de consultas manuales a modelos y relaciones mantenibles.</li>
+                    <li>Se centralizaron las validaciones de negocio y la seguridad en middlewares reutilizables (validación de IDs, verificación de roles como esAdmin y filtrado/límite de archivos con multer).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 mt-4">
+            <div class="p-3 d-flex flex-column h-100">
+                <h3 class="mb-3">Tecnologías y herramientas utilizadas</h3>
+                <ul>
+                    <li><strong>Entorno y Framework:</strong> Node.js, Express.js (v5).</li>
+                    <li><strong>Persistencia y ORM:</strong> PostgreSQL (pg), Sequelize, pg-hstore.</li>
+                    <li><strong>Seguridad y Autenticación:</strong> jsonwebtoken (JWT), bcryptjs.</li>
+                    <li><strong>Manejo de Archivos y Middleware:</strong> multer (para la carga y validación de imágenes/archivos).</li>
+                    <li><strong>Vistas/Configuración:</strong> hbs (Handlebars para renderizado inicial), bootstrap, dotenv (gestión de variables de entorno).</li>
+                    <li><strong>Herramientas de Desarrollo:</strong> nodemon, Postman / Thunder Client (para testing de endpoints).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 mt-4">
+            <div class="p-3 d-flex flex-column h-100">
+                <h3 class="mb-3">Principales aprendizajes alcanzados</h3>
+                <ul>
+                    <li>Comprensión práctica del desacople entre Backend y Frontend, comprendiendo cómo la API expone recursos en formato JSON para ser consumidos de manera agnóstica por cualquier cliente web o móvil.</li>
+                    <li>Evolución en el manejo de persistencia: paso de la manipulación de conexiones manuales de base de datos a la abstracción de modelos, asociaciones y transacciones con un ORM (Sequelize).</li>
+                    <li>Implementación del ciclo de vida de las peticiones en Express mediante middlewares en cadena para validar, filtrar y securizar solicitudes HTTP antes de llegar a los controladores.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 mt-4">
+            <div class="p-3 d-flex flex-column h-100">
+                <h3 class="mb-3">Métricas de impacto logradas</h3>
+                <ul>
+                    <li><strong>Mantenibilidad y Seguridad de Código:</strong> Centralización de las validaciones críticas (validarId, esAdmin, filtros de formato uploadFile) en middlewares, evitando la duplicación de código de verificación en cada controlador de la API.</li>
+                    <li><strong>Optimización de Recursos y Conexión:</strong> Eliminación del antipatrón de apertura y cierre manual de clientes SQL (Client) por cada consulta, sustituyéndolo por la gestión eficiente de conexiones del ORM.</li>
+                    <li><strong>Cobertura de Funcionalidades:</strong> Implementación del 100% de las operaciones CRUD con códigos de estado HTTP estandarizados y estructuración de respuestas consistentes (status, message, data).</li>
+                    <li><strong>Control de Carga de Archivos:</strong> Restricción automatizada en el middleware de carga para bloquear archivos que superen los 2MB de tamaño o extensiones no autorizadas (.jpg, .png, .webp).</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-12 mt-4">
+            <div class="p-3 d-flex flex-column h-100">
+                <h3 class="mb-3">Habilidades técnicas aplicadas</h3>
+                <ul>
+                    <li>Diseño de arquitectura RESTful y estructuración modular de proyectos backend (rutas, controladores, middlewares, modelos).</li>
+                    <li>Modelado de datos relacionales y consultas mediante ORM (Sequelize / PostgreSQL).</li>
+                    <li>Seguridad en aplicaciones web: hash de contraseñas (bcryptjs) y protección de rutas privadas con Tokens de Acceso (JWT).</li>
+                    <li>Manejo de peticiones multipart/form-data para subida de archivos al servidor (multer).</li>
+                    <li>Pruebas de integración de endpoints e inspección de respuestas de la API con Postman.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-12 col-md-12">
+            <div class="card p-3 shadow d-flex flex-column h-100">
+                <p>Este proyecto refleja de forma transparente la evolución técnica real de una base de código backend. Demuestra mi capacidad para tomar un requerimiento inicial, iterar su arquitectura hacia estándares modernos de desarrollo (API REST desacoplada, ORM y seguridad con JWT), y resolver desafíos concretos de validación, manejo de datos y seguridad sin depender de la lógica del cliente.</p>
+                <a href="https://github.com/JATeR912/JS_M8_organizadorTareas" target="_blank" class="btn btn-dark flex-fill">Código</a>
+            </div>
+        </div>
+    </div>
+
 
 {% endblock %}
