@@ -4,7 +4,7 @@
 body{
     margin: 0 auto;
     overflow-x: hidden; /* evitar scroll horizontal */
-    background-color: #ff7f81;
+    background-color: #bbdefa;
     font-family: 'Pixelify Sans', sans-serif;
 }
 
@@ -26,7 +26,7 @@ body{
 
 #navbar .nav-link:hover {
     color: white;
-    text-shadow: -1px -1px #ff7f81, 1px -1px #ff7f81, -1px 1px #ff7f81, 1px 1px #ff7f81;
+    text-shadow: -1px -1px #87cefa, 1px -1px #87cefa, -1px 1px #87cefa, 1px 1px #87cefa;
 }
 
 .navbar .nav-link img {
@@ -142,7 +142,7 @@ p.inProgress {
 }
 
 .btn-demo {
-    background-color: #ff7f81; 
+    background-color: #bbdefa; 
     color: white; 
     border: none; 
     border-radius: 5px; 
@@ -156,7 +156,7 @@ p.inProgress {
 }
 
 .btn-demo:hover {
-    background-color: #ff5959; 
+    background-color: #87cefa; 
     text-decoration: none;
 }
 
@@ -210,7 +210,7 @@ p.inProgress {
 
 /* Cards de contacto */
 .contact .card {
-    background: #ff7f81;
+    background: #87cefa;
     border: 5px solid rgb(243, 239, 227, 0.7);
     border-radius: 10px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -295,12 +295,12 @@ p.inProgress {
 }
 
 .auth-card .form-control:focus {
-    border-color: #ff7f81;
+    border-color: #bbdefa;
     box-shadow: none;
 }
 
 .auth-card .btn-secondary {
-    background-color: #ff7f81;
+    background-color: #bbdefa;
     border: none;
     font-weight: bold;
     color: white;
@@ -308,7 +308,7 @@ p.inProgress {
 }
 
 .auth-card .btn-secondary:hover {
-    background-color: #ff5959;
+    background-color: #87cefa;
 }
 
 /* --- ERRORES 403/404 --- */
