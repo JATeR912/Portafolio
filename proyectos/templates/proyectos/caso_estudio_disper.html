@@ -29,8 +29,9 @@
         <div class="col-12 col-md-12 mt-4">
             <div class="p-3 d-flex flex-column h-100">
                 <h3 class="mb-3">Solución propuesta</h3>
-                <p>Se construyó una API RESTful modular dividida estrictamente en capas (rutas, controladores, middlewares, modelos y servicios).</p>
+                <p>Se construyó una API RESTful modular dividida estrictamente en capas (rutas, controladores, middlewares y modelos).</p>
                 <ul>
+                    <li>Prototipado e Integración Inicial: Se implementaron vistas dinámicas y plantillas con Handlebars (hbs) durante las primeras etapas de desarrollo para realizar pruebas del flujo de datos, antes de desacoplar completamente la API REST hacia respuestas en formato JSON.</li>
                     <li>Se implementó autenticación y autorización mediante tokens JWT y cifrado de contraseñas con bcryptjs.</li>
                     <li>Se utilizó Sequelize (ORM) sobre PostgreSQL para abstraer y estructurar el modelo de datos relacional, migrando de consultas manuales a modelos y relaciones mantenibles.</li>
                     <li>Se centralizaron las validaciones de negocio y la seguridad en middlewares reutilizables (validación de IDs, verificación de roles como esAdmin y filtrado/límite de archivos con multer).</li>
@@ -45,7 +46,7 @@
                     <li><strong>Persistencia y ORM:</strong> PostgreSQL (pg), Sequelize, pg-hstore.</li>
                     <li><strong>Seguridad y Autenticación:</strong> jsonwebtoken (JWT), bcryptjs.</li>
                     <li><strong>Manejo de Archivos y Middleware:</strong> multer (para la carga y validación de imágenes/archivos).</li>
-                    <li><strong>Vistas/Configuración:</strong> hbs (Handlebars para renderizado inicial), bootstrap, dotenv (gestión de variables de entorno).</li>
+                    <li><strong>Vistas/Configuración:</strong> Handlebars (hbs renderizado dinámico de vistas en etapas iniciales de prueba), bootstrap 5, dotenv (gestión de variables de entorno).</li>
                     <li><strong>Herramientas de Desarrollo:</strong> nodemon, Postman / Thunder Client (para testing de endpoints).</li>
                 </ul>
             </div>
@@ -66,7 +67,7 @@
                 <ul>
                     <li><strong>Mantenibilidad y Seguridad de Código:</strong> Centralización de las validaciones críticas (validarId, esAdmin, filtros de formato uploadFile) en middlewares, evitando la duplicación de código de verificación en cada controlador de la API.</li>
                     <li><strong>Optimización de Recursos y Conexión:</strong> Eliminación del antipatrón de apertura y cierre manual de clientes SQL (Client) por cada consulta, sustituyéndolo por la gestión eficiente de conexiones del ORM.</li>
-                    <li><strong>Cobertura de Funcionalidades:</strong> Implementación del 100% de las operaciones CRUD con códigos de estado HTTP estandarizados y estructuración de respuestas consistentes (status, message, data).</li>
+                    <li><strong>Cobertura de Funcionalidades:</strong> Implementación del 100% de las operaciones CRUD con códigos de estado HTTP estandarizados y estructuración de respuestas consistentes (ok, mensaje, data).</li>
                     <li><strong>Control de Carga de Archivos:</strong> Restricción automatizada en el middleware de carga para bloquear archivos que superen los 2MB de tamaño o extensiones no autorizadas (.jpg, .png, .webp).</li>
                 </ul>
             </div>
@@ -86,7 +87,7 @@
         <div class="col-12 col-md-12">
             <div class="card p-3 shadow d-flex flex-column h-100">
                 <p>Este proyecto refleja de forma transparente la evolución técnica real de una base de código backend. Demuestra mi capacidad para tomar un requerimiento inicial, iterar su arquitectura hacia estándares modernos de desarrollo (API REST desacoplada, ORM y seguridad con JWT), y resolver desafíos concretos de validación, manejo de datos y seguridad sin depender de la lógica del cliente.</p>
-                <a href="https://github.com/JATeR912/JS_M8_organizadorTareas" target="_blank" class="btn btn-dark flex-fill">Código</a>
+                <a href="https://github.com/JATeR912/JS_M8_organizadorTareas" target="_blank" class="btn btn-secondary flex-fill">Código</a>
             </div>
         </div>
     </div>
