@@ -41,14 +41,62 @@
         <div class="col-12 col-md-12 mt-4">
             <div class="p-3 d-flex flex-column h-100">
                 <h3 class="mb-3">Tecnologías y herramientas utilizadas</h3>
-                <ul>
-                    <li><strong>Entorno y Framework:</strong> Node.js, Express.js (v5).</li>
-                    <li><strong>Persistencia y ORM:</strong> PostgreSQL (pg), Sequelize, pg-hstore.</li>
-                    <li><strong>Seguridad y Autenticación:</strong> jsonwebtoken (JWT), bcryptjs.</li>
-                    <li><strong>Manejo de Archivos y Middleware:</strong> multer (para la carga y validación de imágenes/archivos).</li>
-                    <li><strong>Vistas/Configuración:</strong> Handlebars (hbs renderizado dinámico de vistas en etapas iniciales de prueba), bootstrap 5, dotenv (gestión de variables de entorno).</li>
-                    <li><strong>Herramientas de Desarrollo:</strong> nodemon, Postman / Thunder Client (para testing de endpoints).</li>
-                </ul>
+                <div class="row habilities">
+                    <!-- Tarjeta 1 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6 fw-bold text-center">Entorno y Framework</h5>
+                                <p class="card-text">Node.js, Express.js (v5).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 2 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6 fw-bold text-center">Persistencia y ORM</h5>
+                                <p class="card-text">PostgreSQL (pg), Sequelize, pg-hstore.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 3 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6 fw-bold text-center">Seguridad y Autenticación</h5>
+                                <p class="card-text">jsonwebtoken (JWT), bcryptjs.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 4 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6 fw-bold text-center">Archivos y Middleware</h5>
+                                <p class="card-text">multer (carga y validación de imágenes).</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 5 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6 fw-bold text-center">Vistas/Configuración</h5>
+                                <p class="card-text">Handlebars (hbs), bootstrap 5, dotenv.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tarjeta 6 -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card shadow-sm h-100">
+                            <div class="card-body">
+                                <h5 class="card-title fs-6 fw-bold text-center">Herramientas de Desarrollo</h5>
+                                <p class="card-text">nodemon, Postman / Thunder Client.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="col-12 col-md-12 mt-4">
@@ -68,8 +116,9 @@
                     <li><strong>Mantenibilidad y Seguridad de Código:</strong> Centralización de las validaciones críticas (validarId, esAdmin, filtros de formato uploadFile) en middlewares, evitando la duplicación de código de verificación en cada controlador de la API.</li>
                     <li><strong>Optimización de Recursos y Conexión:</strong> Eliminación del antipatrón de apertura y cierre manual de clientes SQL (Client) por cada consulta, sustituyéndolo por la gestión eficiente de conexiones del ORM.</li>
                     <li><strong>Cobertura de Funcionalidades:</strong> Implementación del 100% de las operaciones CRUD con códigos de estado HTTP estandarizados y estructuración de respuestas consistentes (ok, mensaje, data).</li>
-                    <li><strong>Control de Carga de Archivos:</strong> Restricción automatizada en el middleware de carga para bloquear archivos que superen los 2MB de tamaño o extensiones no autorizadas (.jpg, .png, .webp).</li>
+                    <li><strong>Control de Carga de Archivos:</strong> Restricción automatizada en el middleware de carga para bloquear archivos que superen los 2MB de tamaño o extensiones no autorizadas (.jpg, .jpeg, .png, .webp).</li>
                 </ul>
+                <img src="{% static 'img/disper/upload_file.png' %}" alt="Caso de estudio: Disper" class="img-fluid">
             </div>
         </div>
         <div class="col-12 col-md-12 mt-4">

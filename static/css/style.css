@@ -160,6 +160,17 @@ p.inProgress {
     text-decoration: none;
 }
 
+/* --- CASO DE ESTUDIO --- */
+.case .card {
+    background: rgba(215, 170, 33, 0.7);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.case .card:hover { 
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
 /* --- CONTACTO --- */
 /* Contenedor principal de la escena pixel */
 .escena-pixel {
